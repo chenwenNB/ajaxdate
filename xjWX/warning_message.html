@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>报警信息</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <script type="text/javascript" src="js/remStyle.js" ></script>
+    <style>
+        title{
+            text-align: center;
+        }
+        body{
+        	background:#F7F8FA;
+        }
+        .all_read>p{
+           text-align: right;
+        }
+        .all_read{ 
+          	margin-top:0.3rem;
+            padding:0 0.3rem;
+            font-size:0.28rem;
+            margin-bottom: 0.16rem;
+            color:#888;
+        }
+        .all_message{
+        	padding:0 0.3rem;
+        }
+        ul>li{
+            list-style: none;
+            margin:0 0.3rem;
+        }
+        .all_message>ul{
+        	width:6.9rem;
+        	height:3.52rem;
+        	background: #fff;
+        	-webkit-box-shadow: 0 0.02rem 0.2rem 0 rgba(65, 64, 64, 0.12);
+			-moz-box-shadow: 0 0.02rem 0.2rem 0 rgba(65, 64, 64, 0.12);
+			-o-box-shadow: 0 0.02rem 0.2rem 0 rgba(65, 64, 64, 0.12);
+        	box-shadow: 0 0.02rem 0.2rem 0 rgba(65, 64, 64, 0.12);
+        	border-radius: 0.08rem;
+        	margin-bottom: 0.3rem;
+        }
+        .blue_warning{
+        	width: 0.45rem;
+        	height:0.45rem;
+        	margin-right:0.2rem;
+        	vertical-align: middle;
+        }
+        .name{
+        	font-size:0.28rem;
+        	color:#333;
+        	padding: 0.3rem 0rem 0.27rem 0rem;
+        	line-height: 0.45rem;
+        	height:0.45rem;
+        }
+        .warning{
+        	font-size:0.34rem;
+        	color:#F5222D;
+        	padding-top:0.65rem;
+        	border-top:0.01rem solid #E5E5E5;
+        	padding-bottom:0.62rem;
+        	border-bottom:0.01rem solid #E5E5E5;
+        }
+        .time{
+        	font-size:0.24rem;
+        	color:#888;
+        	line-height:0.24rem;
+        	margin-top:0.2rem;
+        }
+        .unread>img{
+        	width:0.28rem;
+        	height:0.31rem;
+        	vertical-align: middle;
+        }
+        .unread{
+        	float: right;
+        }
+        .see{
+        	float: right;
+        }
+        .clock{
+        	width:0.23rem;
+        	height:0.23rem;
+        	margin-right:0.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="all_read">
+        <p>全部已读</p>
+    </div>
+    <div class="all_message warning_message">
+        <ul>
+            <li class="name"><span><img src="img/blue_warning.png" class="blue_warning">设备名称</span><span class="unread"><img src="img/fire.png"></span></li>
+            <li class="warning">可燃气体报警</li>
+            <li class="time"><span><img src="img/clock.png" class="clock">2019-09-26 12:12:12</span><span class="see">查看详情&nbsp;&nbsp;&nbsp;></span></li>
+        </ul>
+         <ul>
+            <li class="name"><span><img src="img/blue_warning.png" class="blue_warning">设备名称</span><span class="unread"><img src="img/fire.png"></span></li>
+            <li class="warning">可燃气体报警</li>
+            <li class="time"><span><img src="img/clock.png" class="clock">2019-09-26 12:12:12</span><span class="see">查看详情&nbsp;&nbsp;&nbsp;></span></li>
+        </ul>
+    </div>
+</body>
+</html>

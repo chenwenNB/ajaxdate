@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>修改绑定手机</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <script type="text/javascript" src="js/remStyle.js" ></script>
+    <style>
+        title{
+            text-align: center;
+        }
+        body{
+        	background:#F7F8FA;
+        }
+        input[type='submit']{
+        	background: #51AEF7;
+        	height:0.88rem;
+        	font-size:0.34rem;
+        	font-family: '黑体';
+        	width:6.9rem;
+        	
+        }	
+        .weui-btn-area{
+        	padding-top:0.31rem;
+        	height:1.12rem;
+        	background:#fff;
+        	margin:0;
+        	position:absolute;
+        	bottom:0;
+        	width:100%
+        }
+        .weui-cell{
+        	height:0.9rem;
+        	font-size:0.28rem;
+        }
+        .weui-cell:first-of-type{
+        	height: 0.7rem;
+        }
+        .weui-vcode-btn{
+        	color:#51AEF7;
+        	border:1px solid #51AEF7!important;
+        	width:1.62rem!important;
+        	height:0.5rem;
+        	font-size:0.24rem;
+        	border-radius:0.04rem;
+        	margin-right:0.3rem;
+        	line-height:0.5rem;
+        }
+        .weui-btn:after{
+        	border:0;
+        }
+    </style>
+</head>
+<body>
+<!--<form method="post">-->
+    <div class="weui-cells__group weui-cells__group_form">
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">手机号</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入手机号">
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_vcode">
+                <div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
+                <div class="weui-cell__bd">
+                    <input autofocus="" class="weui-input" type="text" pattern="[0-9]*" id="js_input" placeholder="输入验证码" maxlength="6">
+                </div>
+                <div class="weui-cell__ft">
+                    <button class="weui-btn weui-btn_default weui-vcode-btn">获取验证码</button>
+                </div>
+            </div>
+        </div>
+        <div class="weui-btn-area">
+            <input class="weui-btn" href="javascript:" id="showTooltips" type="submit" value="完成">
+        </div>
+    </div>
+<!--</form>-->
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>我的设备</title>
+    <link rel="stylesheet" href="css/weui.css">
+    <link rel="stylesheet" href="css/example.css">
+    <script type="text/javascript" src="js/remStyle.js" ></script>
+    <style>
+        title{
+            text-align: center;
+        }
+      	.weui-cells{
+        	width:6.9rem;
+        	height:1.2rem;
+        	border-radius: 0.08rem;
+        	margin-top:0.8rem;
+        	-webkit-box-shadow: 0rem 0.05rem 0.18rem 0rem rgba(98,98,98,0.12);
+			-moz-box-shadow: 0rem 0.05rem 0.18rem 0rem rgba(98,98,98,0.12);
+			-o-box-shadow: 0rem 0.05rem 0.18rem 0rem rgba(98,98,98,0.12);
+        	box-shadow:0rem 0.05rem 0.18rem 0rem rgba(98,98,98,0.12);
+        }
+        .weui-tabbar{
+        	height:0.96rem;
+        	background:#fff;
+        	-webkit-box-shadow: 0rem -0.01rem 0.12rem 0rem rgba(9,73,121,0.1);
+			-moz-box-shadow: 0rem -0.01rem 0.12rem 0rem rgba(9,73,121,0.1);
+			-o-box-shadow: 0rem -0.01rem 0.12rem 0rem rgba(9,73,121,0.1);
+        	box-shadow:0rem -0.01rem 0.12rem 0rem rgba(9,73,121,0.1);
+        }
+        .message{
+        	width:0.44rem;
+        	height:0.44rem;	
+        }
+        .owner{
+        	width:0.46rem;
+        	height:0.46rem;
+        }
+        .tab_message{
+        	font-size:0.2rem;
+        	color:#ccc;
+        	line-height:0.28rem;
+        }
+        .tab_owner{
+        	font-size:0.2rem;
+        	color:#ccc;
+        	line-height:0.28rem;
+        }
+        .computer{
+        	width:0.9rem;
+        	height:0.9rem;
+        	margin-top: -0.45rem;
+        	z-index: 100;
+    		position: relative;
+        }
+        .tab_computer{
+        	font-size:0.2rem;
+        	color:#51AEF7;
+        	line-height:0.28rem;
+        }
+        .weui-tab__panel{
+        	background: url(img/normal.png);
+        	background-size:100%;
+        	padding:0 0.3rem;
+        }
+        .devices{
+        	font-size:0.28rem;
+        	line-height: 0.4rem;
+        	color:#fff;
+        	margin-top:0.26rem;
+        }
+        .status{
+        	display: inline-block;
+        	width:0.81rem;
+        	height:0.35rem;
+        	background: #fff;
+        	border-radius: 0.21rem;
+        	color: #5CAF00;
+        	font-size: 0.22rem;
+        	line-height:0.35rem;
+        	vertical-align: middle;
+        	text-align: center;
+        	margin-left:0.2rem;
+        }
+        .set{
+        	float:right;
+        }
+        .set>img{
+        	width:0.4rem;
+        	height:0.32rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="page__bd" style="height: 100%;">
+        <div class="weui-tab">
+            <div class="weui-tab__panel">
+                <div class="devices">
+                    <span>我的设备</span><span class="status">在线</span>
+                    <span class="set" id="showIOSActionSheet"><img src="img/set.png"></span>
+                </div>
+                <div class="main">
+
+                </div>
+                <div class="charts">
+                    <div class="weui-flex">
+                        <div class="weui-flex__item"><div class="placeholder">weui</div></div>
+                        <div class="weui-flex__item"><div class="placeholder">weui</div></div>
+                    </div>
+                </div>
+                <div class="warning_all">
+                    <!--<div>-->
+                    <span class="warning"><img src="img/warning.png"></span>
+                    <span class="warning_message">报警信息（<span class="add"></span>）</span>
+                    <span class="right"><img src="img/right.png"></span>
+                    <!--</div>-->
+                </div>
+            </div>
+            <div class="weui-tabbar">
+		    	<a href="javascript:;" class="weui-tabbar__item">
+		            <img src="./img/message.png" alt="" class="weui-tabbar__icon message">
+		            <p class="weui-tabbar__label tab_message">消息</p>
+		        </a>
+		        <a href="javascript:;" class="weui-tabbar__item">
+		            <img src="./img/computer.png" alt="" class="weui-tabbar__icon computer">
+		            <p class="weui-tabbar__label tab_computer">我的设备</p>
+		        </a>
+		        <a href="javascript:;" class="weui-tabbar__item">
+		            <img src="./img/own.png" alt="" class="weui-tabbar__icon owner">
+		            <p class="weui-tabbar__label tab_owner">我的</p>
+		        </a>
+		    </div>
+        </div>
+    </div>
+    <div>
+        <div class="weui-mask" id="iosMask" style="display: none"></div>
+        <div class="weui-actionsheet" id="iosActionsheet">
+            <div class="weui-actionsheet__menu">
+                <div class="weui-actionsheet__cell remove_name">修改设备名称</div>
+                <div class="weui-actionsheet__cell">分享设备</div>
+                <div class="weui-actionsheet__cell">其他设置</div>
+                <div class="weui-actionsheet__cell">设备自检</div>
+            </div>
+            <div class="weui-actionsheet__action">
+                <div class="weui-actionsheet__cell" id="iosActionsheetCancel">取消</div>
+            </div>
+        </div>
+    </div>
+    <div id="dialogs">
+        <div class="js_dialog" id="iosDialog1" style="display: none;">
+            <div class="weui-mask"></div>
+            <div class="weui-dialog">
+                <div class="weui-dialog__hd"><strong class="weui-dialog__title">修改设备名称</strong></div>
+                <div class="weui-dialog__bd"><input type="text" class="weui-input" style="border: 1px solid rgba(88,87,87,0.5)"></div>
+                <div class="weui-dialog__ft">
+                    <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default">取消</a>
+                    <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary weui_remove_name">确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="toast" style="display: none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast">
+            <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+            <p class="weui-toast__content">已完成</p>
+        </div>
+    </div>
+    <img src="img/add.png" alt="" class="add"/>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $(function(){
+        var $iosActionsheet = $('#iosActionsheet');
+        var $iosMask = $('#iosMask');
+
+        function hideActionSheet() {
+            $iosActionsheet.removeClass('weui-actionsheet_toggle');
+            $iosMask.fadeOut(200);
+        }
+
+        $iosMask.on('click', hideActionSheet);
+        $('#iosActionsheetCancel').on('click', hideActionSheet);
+        $("#showIOSActionSheet").on("click", function(){
+            $iosActionsheet.addClass('weui-actionsheet_toggle');
+            $iosMask.fadeIn(200);
+        });
+
+        var $iosDialog1 = $('#iosDialog1');
+        $(".remove_name").click(function(){
+            hideActionSheet();
+            $iosDialog1.fadeIn(200);
+        });
+        $('#dialogs').on('click', '.weui-dialog__btn_default', function(){
+            $(this).parents('.js_dialog').fadeOut(200);
+        });
+        $('#dialogs').on('click', '.weui-dialog__btn_primary', function(){
+            $(this).parents('.js_dialog').fadeOut(200);
+        });
+    });
+</script>
+</html>
